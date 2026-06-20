@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight" style="--gb-bg: #000924; --gb-accent-from: #0014BD; --gb-accent-to: #0093B5;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>BloxWaves Free Private Server</title>
+    
+    <style>
+        /* Base Page Setup & Dark Theme Variables */
+        :root {
+            --bg-color: #000924;
+            --accent-glow-1: #0014BD;
+            --accent-glow-2: #0093B5;
+            --glass-bg: rgba(15, 23, 42, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-dropdown-bg: rgba(10, 16, 32, 0.9);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glowing Background Lights */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            width: 45vw;
+            height: 45vh;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.4;
+        }
+
+        body::before {
+            top: -10%;
+            left: -10%;
+            background: var(--accent-glow-1);
+        }
+
+        body::after {
+            bottom: -10%;
+            right: -10%;
+            background: var(--accent-glow-2);
+        }
+
+        /* Container for everything on your main landing page */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        /* Glassmorphism Navigation Bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .nav-links a, .nav-item > span {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-item:hover > span {
+            color: #fff;
+        }
+
+        /* Navbar Dropdown Menu Layout */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 12px;
+            background: var(--glass-dropdown-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            min-width: 160px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            padding: 8px 0;
+            z-index: 100;
+        }
+
+        /* Invisible bridge zone to keep hover active */
+        .nav-item::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 15px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            margin: 0;
+            font-size: 14px;
+            text-align: left;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        /* Main Glass Card Wrapper */
+        .main-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        /* Content Dropdown (Accordion for Content Section) */
+        .content-dropdown {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(10, 16, 32, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Use details & summary for dynamic interactions without javascript */
+        .content-dropdown summary {
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background: rgba(255, 255, 255, 0.02);
+            transition: background 0.2s;
+        }
+
+        .content-dropdown summary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom marker arrow indicator */
+        .content-dropdown summary::after {
+            content: "▼";
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+
+        .content-dropdown[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown content block values */
+        .dropdown-content {
+            padding: 16px;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .server-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .server-link:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--accent-glow-2);
+        }
+
+        .btn-tag {
+            font-size: 12px;
+            background: var(--accent-glow-2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <nav class="navbar">
+            <a href="#" class="logo">BloxWaves</a>
+            <div class="nav-links">
+                <div class="nav-item"><a href="#">Home</a></div>
+                
+                <div class="nav-item">
+                    <span>Servers</span>
+                    <div class="dropdown-menu">
+                        <a href="#">Public Lists</a>
+                        <a href="#">Private Link</a>
+                        <a href="#">Status Check</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item"><a href="#">Features</a></div>
+            </div>
+        </nav>
+
+        <main class="main-card">
+            <h1>Welcome to BloxWaves</h1>
+            <p>free public private server. It support some games but we hope to support more </p>
+            
+            <details class="content-dropdown">
+                <summary>Free Private Server</summary>
+                <div class="dropdown-content">
+                    <a href="#" class="server-link">
+                        <span>Blox Fruits</span>
+                        <span class="btn-tag">Join Server</span>
+                    </a>
+                </div>
+            </details>
+            
+        </main>
+
+    </div>
+
+</body>
+</html>
