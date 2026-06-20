@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>BloxWaves - Blox Fruits Private Servers</title>
+    <style>
+    html, body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: radial-gradient(1200px 600px at 10% -10%, #1b2540 0%, transparent 60%), 
+                    radial-gradient(1200px 600px at 90% 110%, #2b1245 0%, transparent 60%), 
+                    linear-gradient(180deg, #0a0f16, #0b121b);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+        color: #cbd5e1;
+        padding: 40px 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .faq-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #3f7cff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .faq-button:hover {
+            background-color: #0064e6;
+        }
+
+    h1 {
+        margin: 0 0 10px;
+        font-size: 36px;
+        color: #f8fafc;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    header p {
+        color: #94a3b8;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .notice-box {
+        background: rgba(255, 255, 255, 0.05); 
+        border-left: 6px solid #3f7cff;          
+        padding: 16px 20px;                      
+        margin-bottom: 40px;                     
+        border-radius: 0 12px 12px 0;            
+        font-size: 15px;
+        font-weight: 700;                        
+        font-style: italic;                      
+        color: #f8fafc;                          
+        line-height: 1.5;
+    }
+
+    /* The magic grid that handles adding more links automatically */
+    .server-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    footer { 
+            margin-top: 40px; 
+            font-size: 0.8em;
+            text-align: center; /* This centers the text */
+        }
+
+    .card {
+        background: rgba(15, 23, 42, .65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(30, 41, 59, .8);
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .5);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(63, 124, 255, 0.4);
+    }
+
+    .badge {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        color: #4ade80;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+    }
+
+    .badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background-color: #22c55e;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+     .badgex {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        color: #ec1e1e;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+    }
+
+    .badgex::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background-color: #ec1e1e;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        color: #f1f5f9;
+        font-weight: 700;
+    }
+
+    .card p {
+        margin: 0 0 20px;
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+        background: linear-gradient(90deg, #6aa1ff, #3f7cff);
+        color: #060b11;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Blox Fruits Private Servers</h1>
+        <p>Select a server block below to launch straight into Roblox.</p>
+    </header>
+
+    <div class="notice-box">
+        All Blox Fruits private servers below have been tested on June 20th and are currently working! We’ve removed the ones not working!
+    </div>
+
+    <div class="server-grid">
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #1</h3>
+                <p>Owner: @K8rill User: red_kukgluo</p>
+            </div>
+            <a href="Https://www.roblox.com/share?code=0712230488fa8d409c1293809df52e75&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #2</h3>
+                <p>Owner: @belahu</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=572051f118d92b408a540d2ef97d3f4a&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #3</h3>
+                <p>Owner: @Eshpex</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=896ac02bde5158489d9b1d2058b4615c&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #4</h3>
+                <p>Owner: @belahu</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=93d5437d42b3a640965a653e2f3794b5&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #5</h3>
+                <p>Owner @Eshpex</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=3f28318dffac2045a1b2137601830a46&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #6</h3>
+                <p>Owner: @Eshpex</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=896ac02bde5158489d9b1d2058b4615c&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #7</h3>
+                <p>Owner: @Eshpex</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=c1a0b6fb9a92a946b065ad20cd47ed83&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #8</h3>
+                <p>Owner: Unknown</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=52281257868219085441522991107429" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #9</h3>
+                <p>Owner: @FewReers</p>
+            </div>
+            <a href="https://www.roblox.com/share?code=35abbcb7cb17cc4190b281a0a7a11299&type=Server" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #10</h3>
+                <p>Owner: @SHY_FOLF1</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=17333705357962114782327150106507" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #11</h3>
+                <p>Owner: @KindheartedDragon465</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=49292823423364358163102369111951" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #12</h3>
+                <p>Owner: @NobleNeon111 </p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=60986976950099681482439858825670" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #12</h3>
+                <p>Owner: @Uzoth</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=17912101686205280451587085480387" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #13</h3>
+                <p>Owner: @worumnet</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=29291324960251185336056696923777" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #14</h3>
+                <p>Owner: @ekowanofficial1</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=68690391882423148950247097377711" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #15</h3>
+                <p>Owner: @Riz_Warrior07</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=93569574133565938980726342258539" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="badge">Active</span>
+                <h3>Private Server #16</h3>
+                <p>Owner: @Begadie</p>
+            </div>
+            <a href="https://www.roblox.com/games/2753915549?privateServerLinkCode=61412698828279621292860009401138" target="_blank" class="btn">Launch Server</a>
+        </div>
+
+    </div>
+</div>
+<footer>
+        <p>Made by Rip_ConsoleCraze</p>
+        <p>All Blox Fruits private servers below have been tested on June 20th and are currently working! We’ve removed the ones not working!</p>
+    </footer>
+</body>
+</html>
