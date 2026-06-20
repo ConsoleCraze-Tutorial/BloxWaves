@@ -75,6 +75,8 @@
             border-radius: 16px;
             padding: 16px 24px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 200; /* Keeps navbar above the main card */
         }
 
         .logo {
@@ -106,14 +108,13 @@
             color: #fff;
         }
 
-        /* Navbar Dropdown Menu Layout */
+       
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 12px;
+            left: 0; /* Aligns left edge with the "Servers" text to prevent clipping */
+            margin-top: 5px;
             background: var(--glass-dropdown-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -122,7 +123,7 @@
             min-width: 160px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
             padding: 8px 0;
-            z-index: 100;
+            z-index: 300; /* Ensures it layers over the main card completely */
         }
 
         /* Invisible bridge zone to keep hover active */
@@ -163,6 +164,8 @@
             padding: 40px;
             text-align: center;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100; /* Lower index so dropdown elements easily layer on top */
         }
 
         h1 {
@@ -265,19 +268,14 @@
         <nav class="navbar">
             <a href="#" class="logo">BloxWaves</a>
             <div class="nav-links">
-                <div class="nav-item"><a href="#">Home</a></div>
+                <div class="nav-item"><a href="https://blox-waves.vercel.app">Home</a></div>
                 
                 <div class="nav-item">
                     <span>Servers</span>
                     <div class="dropdown-menu">
-                        <a href="#">Public Lists</a>
-                        <a href="#">Private Link</a>
-                        <a href="#">Status Check</a>
+                        <a href="https://blox-waves.vercel.app/Blox-fruit.html">Blox fruit</a>
                     </div>
                 </div>
-                
-                <div class="nav-item"><a href="#">Features</a></div>
-            </div>
         </nav>
 
         <main class="main-card">
